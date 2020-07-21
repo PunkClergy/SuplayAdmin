@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+  tasks:
+    - name: Run Build
+      command: npm run build:prod
+
+- hosts: [suplay_dashboard_prod]
+  become: yes
+  become_user: root
+  become_method: sudo
+  serial: 1
+  tasks:
+    - name: Copy build to remote directory
+      copy:
+        src: '../dist/'
+        dest: '/usr/share/nginx/html/suplay-admin/'
+        mode: '0755'

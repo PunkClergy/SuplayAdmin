@@ -1,0 +1,17 @@
+[suplay_dashboard_prod]
+47.99.92.9
+
+[suplay_dashboard_prod:vars]
+root_path=/root/
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_private_key_file=~/Keys/suplay.pem
+
+[suplay_dashboard_test]
+47.98.211.66
+
+[suplay_dashboard_test:vars]
+root_path=/root/
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_private_key_file=~/Keys/suplay.pem
